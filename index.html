@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-online backpack</title>
+    <style>
+        /* div{
+            display: flex;
+            gap: 20px;
+            
+            border-radius: 20px;
+            padding: 4px;
+            background-color: rgb(184, 184, 233);
+            align-items: start;
+            justify-content: flex-end;
+            
+        } */
+        /* .leftsideOption {
+            display: none;
+        } */
+    </style>
+</head>
+
+<body>
+    <h1>Backpack</h1>
+    <a href="">Donate</a>
+    <a href="">subscription</a>
+
+    <div>
+        <select id="bagsOption" onchange="showLeftOptions()" name="Bags">
+            <option value="bags">Bags</option>
+            <option value="studentBagOption">Student</option>
+            <option value="officeBagOption">Office</option>
+            <option value="travelBagOption">Travel</option>
+        
+        </select>
+    </div>
+
+
+    <div>
+        <a href="profile.html">
+            <img width="122px" src="https://images.pexels.com/photos/32703420/pexels-photo-32703420.jpeg"
+                alt="profile img">
+        </a>
+    </div>
+
+    <hr>
+
+
+    <!-- Left Side Options -->
+    <div>
+        <div class="leftsideOption">
+            <label>Left Side Option</label><br>
+
+            <!-- Student -->
+            <div id="studentBagOption" style="display: none;">
+                <select name="" id="">
+                    <option value="books1">Books</option>
+                    <option value="books2">Books</option>
+                    <option value="books3">Books</option>
+                </select>
+                <select name="" id="">
+                    <option value="test1">Test</option>
+                    <option value="test2">Test</option>
+                    <option value="test3">Test</option>
+                </select>
+                <select name="">
+                    <option value="assignment1">Assignment</option>
+                    <option value="assignment2">Assignment</option>
+                    <option value="assignment3">Assignment</option>
+                </select>
+                <a href="chat.html">Chat</a>
+            </div>
+
+            <!-- Travel -->
+            <div id="travelBagOption" style="display: none;">
+                <select name="" id="">
+                    <option value="">Travel</option>
+                    <option value="travelSchedule">Schedule</option>
+                    <option value="travelMaps">Maps</option>
+                    <option value="travelPhos">Photos</option>
+                    <option value="travelVideo">Video</option>
+                </select>
+            </div>
+            <div id="officeBagOption" style="display: none;">
+                <select name="" id="">
+                    <option value="files">files</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Main Image -->
+        <img id="mainImg" width="540px" id="bags" width="540px"
+            src="https://images.pexels.com/photos/9321607/pexels-photo-9321607.jpeg" alt="student backpack">
+    </div>
+
+    <script>
+        function showLeftOptions() {
+            let value = document.getElementById("bagsOption").value;
+
+            // hide all first
+            document.getElementById("studentBagOption").style.display = "none";
+            document.getElementById("travelBagOption").style.display = "none";
+            document.getElementById("officeBagOption").style.display = "none";
+
+            // show selected
+            if (value === "studentBagOption") {
+                document.getElementById("studentBagOption").style.display = "block";
+            }
+            else if (value === "travelBagOption") {
+                document.getElementById("travelBagOption").style.display = "block";
+            }
+            else if (value === "officeBagOption") {
+                document.getElementById("officeBagOption").style.display = "block";
+            }
+            imageChange(value);
+        }
+
+        function imageChange(value) {
+            let source;
+            if (value === "studentBagOption") {
+                source = "https://images.pexels.com/photos/3731256/pexels-photo-3731256.jpeg";
+            } else if (value === "travelBagOption") {
+                source = "https://images.pexels.com/photos/22434759/pexels-photo-22434759.jpeg"
+            } else if (value == "officeBagOption") {
+                source = "https://images.pexels.com/photos/11623262/pexels-photo-11623262.jpeg"
+            }
+            document.getElementById("mainImg").src = source;
+        }
+
+    </script>
+
+    
+</body>
+
+</html>
