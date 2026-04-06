@@ -1,0 +1,7 @@
+Name of the project : online bagpack
+for: mainly student and people who work with files
+purpose :
+    To provide connectivity and communication btw people
+    To provide convinence
+    privecy and security
+    online storage
