@@ -1,17 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profile</title>
+    <style>
+        .container {
+            display: flex;
+            background-color: white;
+            margin: auto;
+            width: 90%;
+            height: 90%;
+        }
+
+        .left {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: rgb(124, 103, 103);
+            width: 20vw;
+            height: 80vh;
+        }
+
+        .left.button {
+            color: red;
+
+        }
+
+        .right {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: grey;
+            width: 75vw;
+            height: 75vh;
+        }
+
+        .profile {}
+    </style>
 </head>
+
 <body>
     <button>
 
-        <a href="index.html" >Go Back </a>
+        <a href="index.html">Go Back </a>
     </button>
     <br>
     <hr>
-    profile page...
+    <div class="container">
+        <div class="left">
+            <button>profile</button>
+            <button>****************</button>
+            <button>****************</button>
+            <button>****************</button>
+            <button>****************</button>
+            <button>****************</button>
+            <button>****************</button>
+            <button>****************</button>
+            <button>****************</button>
+            <button>****************</button>
+            <button>****************</button>
+            <button>****************</button>
+            <button>****************</button>
+            <button>****************</button>
+        </div>
+        <div class="right">
+            <!-- profile -->
+            <div class="profile">
+                <img width="95px" height="95px"
+                    src="https://images.pexels.com/photos/35164363/pexels-photo-35164363.jpeg?_gl=1*wpwl55*_ga*ODE0MTgzMjA2LjE3NzUxMTM1MjY.*_ga_8JE65Q40S6*czE3NzU1MDAwMjAkbzMkZzEkdDE3NzU1MDEzMjYkajM3JGwwJGgw"
+                    alt="profile image">
+                <label for="profile">fullname</label>
+                <label for="profile">email</label>
+                <button onclick="">Edit</button>
+
+                <div class="profileMain">
+                    <label for="">Full Name</label>
+                    <label for="">Nick Name</label>
+                    <label id="gender" for="">Gender</label>
+                    <select name="gender" id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+
+                    </select>
+                    <label for="">Language</label>
+                    <label for="">My Email Address</label>
+                    <img src="" alt="icon">
+                    <label for="">xyz@email.com</label>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <!-- testing purpose only -->
+    <!-- <script>
+        function print(){
+            console.log("edited");
+        }
+    </script> -->
 </body>
+
 </html>
