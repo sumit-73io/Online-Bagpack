@@ -5,83 +5,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home-online backpack</title>
-    
+
 </head>
 
 <body>
-    <h1>Backpack</h1>
-    <a href="">Donate</a>
-    <a href="">subscription</a>
+    <header>
+        <h1>Backpack</h1>
+        <a href="">Donate</a>
+        <a href="">subscription</a>
 
-    <div>
-        <select id="bagsOption" onchange="showLeftOptions()" name="Bags">
-            <option value="bags">Bags</option>
-            <option value="studentBagOption">Student</option>
-            <option value="officeBagOption">Office</option>
-            <option value="travelBagOption">Travel</option>
-        
-        </select>
-    </div>
+        <div>
+            <select id="bagsOption" onchange="showLeftOptions()" name="Bags">
+                <option value="bags">Bags</option>
+                <option value="studentBagOption">Student</option>
+                <option value="officeBagOption">Office</option>
+                <option value="travelBagOption">Travel</option>
 
-
-    <div>
-        <a href="profile.html">
-            <img width="122px" src="https://images.pexels.com/photos/32703420/pexels-photo-32703420.jpeg"
-                alt="profile img">
-        </a>
-    </div>
-
-    <hr>
+            </select>
+        </div>
 
 
-    <!-- Left Side Options -->
-    <div>
-        <div class="leftsideOption">
-            <label>Left Side Option</label><br>
+        <div>
+            <a href="profile.html">
+                <img width="122px" src="https://images.pexels.com/photos/32703420/pexels-photo-32703420.jpeg"
+                    alt="profile img">
+            </a>
+        </div>
 
-            <!-- Student -->
-            <div id="studentBagOption" style="display: none;">
-                <select name="" id="">
-                    <option value="books1">Books</option>
-                    <option value="books2">Books</option>
-                    <option value="books3">Books</option>
-                </select>
-                <select name="" id="">
-                    <option value="test1">Test</option>
-                    <option value="test2">Test</option>
-                    <option value="test3">Test</option>
-                </select>
-                <select name="">
-                    <option value="assignment1">Assignment</option>
-                    <option value="assignment2">Assignment</option>
-                    <option value="assignment3">Assignment</option>
-                </select>
+        <hr>
+    </header>
+    <main>
+
+        <!-- Left Side Options -->
+        <div>
+            <div class="leftsideOption">
+                <label>Left Side Option</label><br>
+
+                <!-- Student -->
+                <!--   <div id="studentBagOption" style="display: block;">
+                    <select name="" id="">  -->
+                <form>
+                    <button type="button">Books</button><br><br>
+                    <button type="button">Test Assignment</button><br><br>
+                    <button type="button">Travel</button>
+                    <button type="button">file</button>
+
+                </form>
                 <a href="chat.html">Chat</a>
             </div>
 
-            <!-- Travel -->
-            <div id="travelBagOption" style="display: none;">
-                <select name="" id="">
-                    <option value="">Travel</option>
-                    <option value="travelSchedule">Schedule</option>
-                    <option value="travelMaps">Maps</option>
-                    <option value="travelPhos">Photos</option>
-                    <option value="travelVideo">Video</option>
-                </select>
+          
             </div>
-            <div id="officeBagOption" style="display: none;">
-                <select name="" id="">
-                    <option value="files">files</option>
-                </select>
+            <div id="officeBagOption" style="display: block;">
+                
             </div>
         </div>
 
         <!-- Main Image -->
         <img id="mainImg" width="540px" id="bags" width="540px"
             src="https://images.pexels.com/photos/9321607/pexels-photo-9321607.jpeg" alt="student backpack">
-    </div>
+        </div>
 
-    <script>
+
+        <!-- Middle portion -->
+
+        <table width="100%" height="600">
+            <tr>
+                <!-- Sidebar -->
+               
+                <!-- Middle Content -->
+                <td valign="top">
+                    <h2>Books</h2>
+                    <select name="" id="">
+                        <option value="books">books</option>
+                        <option value="physics">Physics</option>
+                        <option value="physics">Physics</option>
+                        <option value="physics">Physics</option>
+                        <option value="physics">Physics</option>
+                    </select>
+                    <!-- <ul>
+                        <button>PHYSICS</button><br><br>
+                        <button>CHEMISTRY</button><br><br>
+                        <button>BIOLOGY</button><br><br>
+                        <button>MATH</button><br><br>
+                    </ul> -->
+                    <!-- <h2>Test </h2>
+                    <ul>
+                        <button>Weekly Test</button><br><br>
+                        <button>Monthly Test</button><br><br>
+                        <button>Yearly Test</button><br><br>
+                    </ul> -->
+                    
+                    <h2>Assignment</h2>
+                    <ul>
+                      <button>1st semester</button><br><br>
+                        <button>2nd semester</button><br><br>
+                        <button>3rd semester</button><br><br>
+                        <button>4th semester</button><br><br>
+                    </ul>
+                    <h2>Travel</h2>
+                    <ul>
+                        <button>sechdule</button><br><br>
+                        <button>MAPS</button><br><br>
+                        <button>photos</button><br><br>
+                        <button>videos</button><br><br>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+</body>
+
+</section>
+
+
+
+
+
+<!-- Right side -->
+<h1>TOOLS</h1>
+
+<p class="rating"></p>
+</div>
+<button>***** </button>
+</div>
+
+
+
+<p class="rating"></p>
+</div>
+<button>******</button>
+</div>
+
+
+
+<p class="rating"></p>
+</div>
+<button><img src="https://cdn-icons-png.flaticon.com/128/891/891175.png" width="20" height="20">calculator</button>
+</div>
+
+
+<p class="rating"></p>
+</div>
+<button>******</button>
+</div>
+
+
+
+
+
+
+
+</main>
+
+<!--<script>
         function showLeftOptions() {
             let value = document.getElementById("bagsOption").value;
 
@@ -115,9 +191,7 @@
             document.getElementById("mainImg").src = source;
         }
 
-    </script>
-
-    
+    </script>  -->
 </body>
 
 </html>
