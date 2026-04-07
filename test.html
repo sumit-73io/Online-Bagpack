@@ -1,12 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test page</title>
+    <title>Profile Dashboard</title>
+
+    <!-- <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #a1c4fd, #fbc2eb);
+        }
+
+        /* Main Layout */
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+
+
+
+
+        /* Main Content */
+        .main { -->
+            <!-- flex: 1;
+            padding: 20px;
+        }
+
+        /* Card */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Top Bar */
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; -->
+        <!-- }
+
+
+
+        /* Profile Header */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .profile-header img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .edit-btn { -->
+            <!-- margin-left: auto;
+            background: #4f7cff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Form Grid */
+        .form-grid { -->
+            <!-- display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        /* Section */
+        .section {
+            margin-top: 20px;
+        }
+    </style> -->
+
 </head>
+
 <body>
-    for testing purpose.
-    hello world
+
+    <div class="container">
+
+
+
+        <!-- Main -->
+        <div class="main">
+            <div class="card">
+
+                <!-- Topbar -->
+                <div class="topbar">
+                    <div>
+                        <h2>Welcome, Sumit</h2>
+                        <p style="color: gray;">Today's Dashboard</p>
+                    </div>
+
+                </div>
+
+                <!-- Profile Header -->
+                <div class="profile-header">
+                    <img
+                        src="https://images.pexels.com/photos/35164363/pexels-photo-35164363.jpeg?_gl=1*wpwl55*_ga*ODE0MTgzMjA2LjE3NzUxMTM1MjY.*_ga_8JE65Q40S6*czE3NzU1MDAwMjAkbzMkZzEkdDE3NzU1MDEzMjYkajM3JGwwJGgw">
+                    <div>
+                        <h3>Sumit Kumar</h3>
+                        <p style="color: gray;">sumit@email.com</p>
+                    </div>
+                    <button class="edit-btn">Edit</button>
+                </div>
+
+                <!-- Form -->
+                <div class="form-grid">
+                    <div>
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Your Name">
+                    </div>
+
+                    <div>
+                        <label>Nick Name</label>
+                        <input type="text" placeholder="Nick Name">
+                    </div>
+
+                    <div>
+                        <label>Gender</label>
+                        <select>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Country</label>
+                        <select>
+                            <option>India</option>
+                            <option>USA</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Language</label>
+                        <select>
+                            <option>English</option>
+                            <option>Hindi</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Time Zone</label>
+                        <select>
+                            <option>IST</option>
+                            <option>UTC</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Email Section -->
+                <div class="section">
+                    <h4>Email Address</h4>
+                    <p>sumit@email.com</p>
+                    <button class="edit-btn">+ Add Email</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
 </body>
+
 </html>

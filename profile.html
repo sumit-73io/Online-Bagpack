@@ -48,80 +48,118 @@
 </head>
 
 <body>
-    <button>
+    <button style="margin: 20px; padding: 10px; border-radius: 10px; background-color: lightblue; border: none;">
 
         <a href="index.html">Go Back </a>
     </button>
     <br>
     <hr>
     <div class="container">
-        <div class="left">
-            <button>profile</button>
-            <button>****************</button>
-            <button>****************</button>
-            <button>****************</button>
-            <button>****************</button>
-            <button>****************</button>
-            <button>****************</button>
-            <button>****************</button>
-            <button>****************</button>
-            <button>****************</button>
-            <button>****************</button>
-            <button>****************</button>
-            <button>****************</button>
-            <button>****************</button>
+        <div class="left sidebar">
+            <button onclick="showSection('profile')">Profile</button>
+            <button onclick="showSection('settings')">Settings</button>
+            <button onclick="showSection('appearance')">Appearance</button>
+            <button onclick="showSection('logout')">Logout</button>
         </div>
         <div class="right">
-            <!-- profile -->
-            <div class="profile">
-                <img width="95px" height="95px"
-                    src="https://images.pexels.com/photos/35164363/pexels-photo-35164363.jpeg?_gl=1*wpwl55*_ga*ODE0MTgzMjA2LjE3NzUxMTM1MjY.*_ga_8JE65Q40S6*czE3NzU1MDAwMjAkbzMkZzEkdDE3NzU1MDEzMjYkajM3JGwwJGgw"
-                    alt="profile image">
 
-                
-                <label for="profile">fullname</label>
-                <label for="profile">email</label>
-                <button onclick="alert('not allowed')">Edit</button>
 
-                <div class="profileMain">
+            <!-- PROFILE -->
+            <div class="card section-box" id="profile">
+
+                <!-- Topbar -->
+                <div class="topbar">
                     <div>
-                        <label for="">Full Name</label>
-                        <label style="background-color: lightgrey;padding: 2px; width: 20px; border-radius: 4px;" for="">bagpack</label>
+                        <h2>Welcome, Sumit</h2>
+                        <p style="color: gray;">Today's Dashboard</p>
                     </div>
+
+                </div>
+
+                <!-- Profile Header -->
+                <div class="profile-header">
+                    <img width="70" height="70"
+                        src="https://images.pexels.com/photos/35164363/pexels-photo-35164363.jpeg?_gl=1*wpwl55*_ga*ODE0MTgzMjA2LjE3NzUxMTM1MjY.*_ga_8JE65Q40S6*czE3NzU1MDAwMjAkbzMkZzEkdDE3NzU1MDEzMjYkajM3JGwwJGgw">
                     <div>
-                        <label for="">Nick Name</label>
-                        <label for="">bag0101_rock</label>
+                        <h3>Sumit Kumar</h3>
+                        <p style="color: gray;">sumit@email.com</p>
                     </div>
+                    <button class="edit-btn">Edit</button>
+                </div>
+
+                <!-- Form -->
+                <div class="form-grid">
                     <div>
-                        <label id="gender" for="">Gender</label>
-                        <select name="gender" id="gender">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Other</option>
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Your Name">
+                    </div>
+
+                    <div>
+                        <label>Nick Name</label>
+                        <input type="text" placeholder="Nick Name">
+                    </div>
+
+                    <div>
+                        <label>Gender</label>
+                        <select>
+                            <option>Male</option>
+                            <option>Female</option>
                         </select>
                     </div>
-                    <div>
-                        <label for="">D.O.B</label>
-                        <input type="date">
-                    </div>
-                    <div>
-                        <label for="">Language</label>
-
-                    </div>
 
                     <div>
-
-                        <label for="">My Email Address</label>
-                        <img src="" alt="icon">
-                        <label for="">xyz@email.com</label>
+                        <label>Country</label>
+                        <select>
+                            <option>India</option>
+                            <option>USA</option>
+                        </select>
                     </div>
+
+                    <div>
+                        <label>Language</label>
+                        <select>
+                            <option>English</option>
+                            <option>Hindi</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Time Zone</label>
+                        <select>
+                            <option>IST</option>
+                            <option>UTC</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Email Section -->
+                <div class="section">
+                    <h4>Email Address</h4>
+                    <p>sumit@email.com</p>
+                    <button class="edit-btn">+ Add Email</button>
                 </div>
 
             </div>
 
+
         </div>
 
+        <!-- SETTINGS -->
+        <div class="card section-box" id="settings" style="display:none;">
+            <h2>Settings</h2>
+            <p>Settings content here...</p>
+        </div>
 
+        <!-- APPEARANCE -->
+        <div class="card section-box" id="appearance" style="display:none;">
+            <h2>Appearance</h2>
+            <p>Theme / Dark mode etc...</p>
+        </div>
+
+        <!-- LOGOUT -->
+        <div class="card section-box" id="logout" style="display:none;">
+            <h2>Logout</h2>
+            <p>Are you sure?</p>
+        </div>
 
     </div>
 
