@@ -5,89 +5,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profile</title>
-    <style>
-        .container {
-            display: flex;
-            background-color: white;
-            margin: auto;
-            width: 90%;
-            height: 90%;
-        }
-
-        .left {
-            display: flex;
-            flex-direction: column;
-            margin: 10px;
-            padding: 10px;
-            border-radius: 20px;
-            background-color: rgb(124, 103, 103);
-            width: 20vw;
-            height: 80vh;
-        }
-
-        .left.button {
-            color: red;
-
-        }
-
-        .right {
-            margin: 10px;
-            padding: 10px;
-            border-radius: 20px;
-            background-color: grey;
-            width: 75vw;
-            height: 75vh;
-        }
-
-        .profileMain {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-
-        }
-    </style>
+    <link rel="stylesheet" href="profile_style.css">
 </head>
 
 <body>
-    <button style="margin: 20px; padding: 10px; border-radius: 10px; background-color: lightblue; border: none;">
 
-        <a href="index.html">Go Back </a>
+    <!-- Back Button -->
+    <button class="back-btn">
+        <a href="index.html">Go Back</a>
     </button>
-    <br>
+
     <hr>
+
     <div class="container">
+
+        <!-- Sidebar -->
         <div class="left sidebar">
-            <button onclick="showSection('profile')">Profile</button>
-            <button onclick="showSection('settings')">Settings</button>
-            <button onclick="showSection('appearance')">Appearance</button>
-            <button onclick="showSection('logout')">Logout</button>
+            <button onclick="showSection('profile')" data-section="profile" class="active">Profile</button>
+            <button onclick="showSection('settings')" data-section="settings">Settings</button>
+            <button onclick="showSection('appearance')" data-section="appearance">Appearance</button>
+            <button onclick="showSection('logout')" data-section="logout">Logout</button>
         </div>
+
+        <!-- Right Side -->
         <div class="right">
 
-
-            <!-- PROFILE -->
+            <!-- Profile -->
             <div class="card section-box" id="profile">
 
-                <!-- Topbar -->
                 <div class="topbar">
                     <div>
                         <h2>Welcome, Sumit</h2>
-                        <p style="color: gray;">Today's Dashboard</p>
+                        <p class="sub-text">Today's Dashboard</p>
                     </div>
-
                 </div>
 
-                <!-- Profile Header -->
                 <div class="profile-header">
-                    <img width="70" height="70"
-                        src="https://images.pexels.com/photos/35164363/pexels-photo-35164363.jpeg?_gl=1*wpwl55*_ga*ODE0MTgzMjA2LjE3NzUxMTM1MjY.*_ga_8JE65Q40S6*czE3NzU1MDAwMjAkbzMkZzEkdDE3NzU1MDEzMjYkajM3JGwwJGgw">
+                    <img class="profile-img" src="https://images.pexels.com/photos/35164363/pexels-photo-35164363.jpeg">
+
                     <div>
-                        <h3>Sumit Kumar</h3>
-                        <p style="color: gray;">sumit@email.com</p>
+                        <h3>Sumit Sharma</h3>
+                        <p class="sub-text">sumit@email.com</p>
                     </div>
+
                     <button class="edit-btn">Edit</button>
                 </div>
 
-                <!-- Form -->
                 <div class="form-grid">
                     <div>
                         <label>Full Name</label>
@@ -131,7 +94,7 @@
                         </select>
                     </div>
                 </div>
-                <!-- Email Section -->
+
                 <div class="section">
                     <h4>Email Address</h4>
                     <p>sumit@email.com</p>
@@ -140,35 +103,29 @@
 
             </div>
 
+            <!-- settings -->
+            <div class="card section-box" id="settings">
+                <h2>Settings</h2>
+                <p>Settings content here...</p>
+            </div>
 
-        </div>
+            <!-- Appearance -->
+            <div class="card section-box" id="appearance">
+                <h2>Appearance</h2>
+                <p>Theme / Dark mode etc...</p>
+            </div>
 
-        <!-- SETTINGS -->
-        <div class="card section-box" id="settings" style="display:none;">
-            <h2>Settings</h2>
-            <p>Settings content here...</p>
-        </div>
+            <!-- logout -->
+            <div class="card section-box" id="logout">
+                <h2>Logout</h2>
+                <p>Are you sure?</p>
+            </div>
 
-        <!-- APPEARANCE -->
-        <div class="card section-box" id="appearance" style="display:none;">
-            <h2>Appearance</h2>
-            <p>Theme / Dark mode etc...</p>
-        </div>
-
-        <!-- LOGOUT -->
-        <div class="card section-box" id="logout" style="display:none;">
-            <h2>Logout</h2>
-            <p>Are you sure?</p>
         </div>
 
     </div>
 
-    <!-- testing purpose only -->
-    <!-- <script>
-        function print(){
-            console.log("edited");
-        }
-    </script> -->
+    <script src="profile_script.js"></script>
 </body>
 
 </html>

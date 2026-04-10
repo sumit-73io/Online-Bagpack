@@ -1,340 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home-online backpack</title>
-
+    <title>home page</title>
+    <link rel="stylesheet" href="homePage_style.css">
 </head>
 
-<body>
-    <header>
-        <h1>Backpack</h1>
-        <a href="">Donate</a>
-        <a href="">subscription</a>
 
-        <div>
-            <select id="bagsOption" onchange="showLeftOptions()" name="Bags">
+
+<body>
+    
+    <!-- HEADER -->
+    <header class="navbar">
+        <h1>Backpack</h1>
+        
+        <div class="nav-links">
+            <a href="">Donate</a>
+            <a href="">Subscription</a>
+            
+            <select id="bagsOption" onchange="showLeftOptions()">
                 <option value="bags">Bags</option>
                 <option value="studentBagOption">Student</option>
                 <option value="officeBagOption">Office</option>
                 <option value="travelBagOption">Travel</option>
-
             </select>
-        </div>
-
-
-        <div>
+            
             <a href="profile.html">
-                <img width="122px" src="https://images.pexels.com/photos/32703420/pexels-photo-32703420.jpeg"
-                    alt="profile img">
+                <img class="profile-img"
+                src="https://images.pexels.com/photos/32703420/pexels-photo-32703420.jpeg">
             </a>
         </div>
-
-        <hr>
     </header>
-    <main>
-
-        <!-- Left Side Options -->
-        <div>
-            <div class="leftsideOption">
-                <label>Left Side Option</label><br>
-
-                <!-- Student -->
-                <!--   <div id="studentBagOption" style="display: block;">
-                    <select name="" id="">  -->
-                <!-- <form>
-                    <button type="button">Books</button><br><br>
-                    <button type="button">Test Assignment</button><br><br>
-                    <button type="button">Travel</button>
-                    <button type="button">file</button>
-
-                </form> -->
-                <!--   <select name="" id="">books
-                    <option value="" disabled selected>BOOKS</option>
-                    <option value="books">PHYSICS</option>
-                    <option value="books">CHEMISTRY</option>
-                    <option value="books">BIOLOGY</option>
-                    <option value="books">MATH</option>
-                </select>-->
-                <div style="width:200px; float:left;">
-
-                    <!-- BOOKS BUTTON -->
-                    <details>
-                        <summary style="cursor:pointer; font-weight:bold;">Books</summary>
-
-                        <br>
-                        <a href="#physics">Physics</a><br><br>
-                        <a href="#chemistry">Chemistry</a><br><br>
-                        <a href="#math">Math</a>
-                    </details>
-
-                </div>
-                <div style="width:200px; float:left;">
-
-                    <!-- test -->
-                    <details>
-                        <summary style="cursor:pointer; font-weight:bold;">TEST</summary>
-
-                        <br>
-                        <a href="#weekly_test">Weekly Test</a><br><br>
-                        <a href="#monthly_test">Monthly Test</a><br><br>
-                        <a href="#final_test">Final Test</a>
-                    </details>
-
-                </div>
-                <!-- Assignment -->
-                <details>
-                    <summary style="cursor:pointer; font-weight:bold;">ASSIGNMENT</summary>
-
-                    <br>
-                    <a href="#assignment1">1st semester Assignment</a><br><br>
-                    <a href="#assignment2">2nd semester Assignment</a><br><br>
-                    <a href="#assignment3">3rd semester Assignment</a><br><br>
-                    <a href="#assignment4">4thsemester Assignment</a><br><br>
-                    <a href="#assignment5th">5th semester Assignment</a><br><br>
-                    <a href="#assignment6th">6th semester Assignment</a><br><br>
-
-
-                </details>
-
-            </div>
-
-
-
-
-
+    
+    <!-- MAIN LAYOUT -->
+    <main class="layout">
+        
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+            <h3>Menu</h3>
+            
+            <details>
+                <summary>Books</summary>
+                <a href="#physics">Physics</a>
+                <a href="#chemistry">Chemistry</a>
+                <a href="#math">Math</a>
+            </details>
+            
+            <details>
+                <summary>Tests</summary>
+                <a href="#weekly">Weekly</a>
+                <a href="#monthly">Monthly</a>
+            </details>
+            
+            <details>
+                <summary>Office</summary>
+                <a href="#calendar">Calendar</a>
+                <a href="#documents">Documents</a>
+            </details>
+            
             <a href="chat.html">Chat</a>
-        </div>
-        <!-- office -->
-        <div style="width:200px; float:left;">
-
-
-            <details>
-                <summary style="cursor:pointer; font-weight:bold;">Books</summary>
-
-                <br>
-                <a href="#calander">calander</a><br><br>
-                <a href="#documents">documents</a><br><br>
-                <a href="#files">files</a> <br><br>
-                <a href="#images">images</a><br><br>
-
-
-            </details>
-
-        </div>
-
-        <!-- travel -->
-        <div style="width:200px; float:left;">
-
-            <!--travel -->
-            <details>
-                <summary style="cursor:pointer; font-weight:bold;">Travel</summary>
-
-                <br>
-                <a href="#maps">Maps</a><br><br>
-                <a href="#schedule">Schedule</a><br><br>
-                <a href="#photos">Photos</a><br><br>
-                <a href="#videos">Videos</a>
-            </details>
-
-
-        </div>
-
-
-
-        <!-- Main Image -->
-        <img id="mainImg" width="540px" id="bags" width="540px"
-            src="https://images.pexels.com/photos/9321607/pexels-photo-9321607.jpeg" alt="student backpack">
-        </div>
-
-
-        <!-- Middle portion -->
-
-        <div style="margin-left:220px; padding:20px;">
-
-            <h2>Welcome</h2>
-            <p>Select subject from Books</p>
-
-            <section id="physics">
-                <h2>Physics</h2>
-                <p>Physics is about force, motion, and energy.</p>
-            </section>
-
-            <section id="chemistry">
-                <h2>Chemistry</h2>
-                <p>Chemistry studies substances and reactions.</p>
-            </section>
-
-            <section id="math">
-                <h2>Math</h2>
-                <p>Math includes algebra, geometry, and calculations.</p>
-            </section>
-
-        </div>
-
-        <div style="margin-left:220px; padding:20px;">
-            <p>welcome to the test section</p>
-            <section id="weekly_test">
-                <h2>Weekly Test</h2>
-                <p>Weekly tests help you practice regularly.</p>
-            </section>
-            <section id="monthly_test">
-                <h2>Monthly Test</h2>
-                <p>Monthly tests cover more material for review.</p>
-            </section>
-            <section id="final_test">
-                <h2>Final Test</h2>
-                <p>Final tests assess your overall understanding.</p>
-            </section>
-
-        </div>
-        <div style="margin-left:220px; padding:20px;">
-            <p>welcome to the assignment section</p>
-            <section id="assignment1">
-                <h2>1st semester Assignment</h2>
-                <p>1st semester assignments focus on basic concepts.</p>
-            </section>
-            <section id="assignment2">
-                <h2>2nd semester Assignment</h2>
-                <p>2nd semester assignments build on what you learned.</p>
-            </section>
-            <section id="assignment3">
-                <h2>3rd semester Assignment</h2>
-                <p>3rd semester assignments introduce new topics.</p>
-            </section>
-            <section id="assignment4">
-                <h2>4th semester Assignment</h2>
-                <p>4th semester assignments challenge your skills.</p>
-            </section>
-            <section id="assignment5th">
-                <h2>5th semester Assignment</h2>
-                <p>5th semester assignments prepare you for exams.</p>
-            </section>
-            <section id="assignment6th">
-                <h2>6th semester Assignment</h2>
-                <p>6th semester assignments review everything you've learned.</p>
-            </section>
-        </div>
-        <div style="margin-left:220px; padding:20px;">
-            <p>welcome to the office section</p>
-            <section id="calander">
-                <h2>calander</h2>
-                <p>calander helps you keep track of important dates.</p>
-            </section>
-            <section id="documents">
-                <h2>documents</h2>
-                <p>documents store your important files and information.</p>
-            </section>
-            <section id="files">
-                <h2>files</h2>
-                <p>files help you organize your work and projects.</p>
-            </section>
-            <section id="images">
-                <h2>images</h2>
-                <p>images allow you to save and view pictures for reference.</p>
-            </section>
-        </div>
-        <div style="margin-left:220px; padding:20px;">
-            <p>welcome to the travel section</p>
-            <section id="maps">
-                <h2>Maps</h2>
-                <p>Maps help you find your way and explore new places.</p>
-            </section>
-            <section id="schedule">
-                <h2>Schedule</h2>
-                <p>Schedule helps you plan your trips and activities.</p>
-            </section>
-            <section id="photos">
-                <h2>Photos</h2>
-                <p>Photos allow you to capture and remember your travel moments.</p>
-            </section>
-            <section id="videos">
-                <h2>Videos</h2>
-                <p>Videos let you relive your travel experiences and share them with others.</p>
-            </section>
-        </div>
-
-
-
-
-
-
-
-
-        <!-- Right side -->
-        <h1>TOOLS</h1>
-
-        <p class="rating"></p>
-        </div>
-        <button>***** </button>
-        </div>
-
-
-
-        <p class="rating"></p>
-        </div>
-        <button>******</button>
-        </div>
-
-
-
-        <p class="rating"></p>
-        </div>
-        <button><img src="https://cdn-icons-png.flaticon.com/128/891/891175.png" width="20"
-                height="20">calculator</button>
-        </div>
-
-
-        <p class="rating"></p>
-        </div>
-        <button>******</button>
-        </div>
-
-
-
-
-
-
-
+        </aside>
+        
+        <!-- CENTER -->
+        <section class="center-content">
+            <img id="mainImg"
+            src="https://images.pexels.com/photos/9321607/pexels-photo-9321607.jpeg">
+        </section>
+        
+        <!-- RIGHT -->
+        <aside class="right-sidebar">
+            <h3>Tools</h3>
+            
+            <button>Tool 1</button>
+            <button>Tool 2</button>
+            <button>Tool 3</button>
+            
+            <button>
+                <img src="https://cdn-icons-png.flaticon.com/128/891/891175.png">
+                Calculator
+            </button>
+        </aside>
+        
     </main>
-
-    <!--<script>
-        function showLeftOptions() {
-            let value = document.getElementById("bagsOption").value;
-
-            // hide all first
-            document.getElementById("studentBagOption").style.display = "none";
-            document.getElementById("travelBagOption").style.display = "none";
-            document.getElementById("officeBagOption").style.display = "none";
-
-            // show selected
-            if (value === "studentBagOption") {
-                document.getElementById("studentBagOption").style.display = "block";
-            }
-            else if (value === "travelBagOption") {
-                document.getElementById("travelBagOption").style.display = "block";
-            }
-            else if (value === "officeBagOption") {
-                document.getElementById("officeBagOption").style.display = "block";
-            }
-            imageChange(value);
-        }
-
-        function imageChange(value) {
-            let source;
-            if (value === "studentBagOption") {
-                source = "https://images.pexels.com/photos/3731256/pexels-photo-3731256.jpeg";
-            } else if (value === "travelBagOption") {
-                source = "https://images.pexels.com/photos/22434759/pexels-photo-22434759.jpeg"
-            } else if (value == "officeBagOption") {
-                source = "https://images.pexels.com/photos/11623262/pexels-photo-11623262.jpeg"
-            }
-            document.getElementById("mainImg").src = source;
-        }
-
-    </script>  -->
+    
+    
+    
 </body>
-
 </html>

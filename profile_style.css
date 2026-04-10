@@ -1,0 +1,156 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Body */
+body {
+  background: linear-gradient(to right, #a1c4fd, #fbc2eb);
+}
+
+/* Back Button */
+.back-btn {
+  margin: 20px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
+}
+
+.back-btn a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #6d5c5c;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar button {
+  margin: 10px 0;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #ddd;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sidebar button:hover {
+  background: #bbb;
+}
+
+/* Right Content */
+.right {
+  flex: 1;
+}
+
+/* Card */
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Topbar */
+.topbar h2 {
+  margin-bottom: 5px;
+}
+
+.topbar p {
+  color: gray;
+}
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* profile image */
+.profile-header img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.profile-header h3 {
+  margin-bottom: 5px;
+}
+
+.edit-btn {
+  margin-left: auto;
+  padding: 8px 15px;
+  background: #4f7cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Form Grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.form-grid label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Section */
+.section {
+  margin-top: 20px;
+}
+
+.section h4 {
+  margin-bottom: 10px;
+}
+
+/* Hidden sections */
+.section-box {
+  display: none;
+}
+
+/* Show default */
+#profile {
+  display: block;
+}
+
+
+.left.sidebar button.active {
+  background: #4f7cff;
+  color: white;
+}
