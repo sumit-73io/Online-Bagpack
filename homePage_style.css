@@ -11,7 +11,7 @@ body {
   background: linear-gradient(to right, #e0eafc, #cfdef3);
 }
 
-/* NAVBAR*/
+/* Navbar*/
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -52,14 +52,14 @@ body {
   object-fit: cover;
 }
 
-/* ===== MAIN LAYOUT ===== */
+/* main layout */
 .layout {
   display: flex;
   gap: 20px;
   padding: 10px;
 }
 
-/* ===== SIDEBAR ===== */
+/* sidebar */
 .sidebar {
   width: 220px;
   background: white;
@@ -115,7 +115,7 @@ body {
   background: #eee;
 }
 
-/* ===== CENTER CONTENT ===== */
+/* Center content */
 .center-content {
   flex: 1;
   background: white;
