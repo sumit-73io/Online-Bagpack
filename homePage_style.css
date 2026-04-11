@@ -8,7 +8,7 @@
 
 /* BODY  */
 body {
-  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  background: linear-gradient(to right, #1c0507, #5f6060)
 }
 
 /* Navbar*/
@@ -18,9 +18,8 @@ body {
   align-items: center;
   background: white;
   padding: 15px 20px;
-  margin: 10px;
-  border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin: 0px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Right side of navbar */
@@ -56,21 +55,47 @@ body {
 .layout {
   display: flex;
   gap: 20px;
-  padding: 10px;
+  padding: 0px;
+  margin-left: 0px;
+  margin-top: 20px;
 }
 
 /* sidebar */
 .sidebar {
-  width: 220px;
+  width: 300px;
+  min-width: 300px;
+  min-height: 330px;
+  /* max-height: 400px; */
   background: white;
   padding: 15px;
+  margin-left: 0px;
   border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Sidebar heading */
 .sidebar h3 {
   margin-bottom: 10px;
+}
+
+.menu-group {
+  display: none;
+}
+
+.menu-group a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  margin: 5px 0;
+}
+
+.sidebar details {
+  margin-bottom: 12px;
+}
+
+.sidebar summary {
+  cursor: pointer;
+  font-weight: bold;
 }
 
 /* Dropdown summary */
@@ -117,12 +142,17 @@ body {
 
 /* Center content */
 .center-content {
+  background-image: url("https://images.pexels.com/photos/9321607/pexels-photo-9321607.jpeg");
+  background-size: cover;
+  background-position: center;
   flex: 1;
-  background: white;
+  /* background: none; */
+  height: 600px;
+  min-height: 650px;
   padding: 20px;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  /* box-shadow: 0 5px 15px rgba(0,0,0,0.1); */
 }
 
 /* Image */
@@ -133,13 +163,13 @@ body {
   margin-bottom: 15px;
 }
 
-/* ===== RIGHT SIDEBAR (TOOLS) ===== */
+/* Right sidebar - tools */
 .right-sidebar {
   width: 200px;
   background: white;
   padding: 15px;
   border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Tools title */
@@ -170,6 +200,91 @@ body {
   width: 18px;
   margin-right: 5px;
   vertical-align: middle;
+}
+
+/* Sidebar toggle button */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 10px;;
+}
+
+/* Fix button style */
+.toggle-btn {
+  padding: 6px 10px;
+  border: none;
+  background: white;
+  color: black;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+
+/* Sidebar default */
+.sidebar {
+  width: 220px;
+  min-width: 220px;
+  transition: 0.3s ease;
+  overflow: hidden;
+}
+
+/* Collapsed state */
+.sidebar.collapsed {
+  width: 60px;
+  min-width: 60px;
+}
+
+/* Hide text when collapsed */
+.sidebar.collapsed summary,
+.sidebar.collapsed a,
+.sidebar.collapsed h3 {
+  display: none;
+}
+
+/* Keep only icons or button visible */
+.toggle-btn {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+
+
+/* Tools features */
+.tool-box {
+  display: none;
+  margin-top: 15px;
+  padding: 15px;
+  background: #f4f4f4;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#time {
+  font-size: 24px;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.controls button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #4f7cff;
+  color: white;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background: #3a63d8;
 }
 
 /* ===== RESPONSIVE (MOBILE) ===== */

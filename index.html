@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,81 +11,118 @@
 
 
 <body>
-    
+
     <!-- HEADER -->
     <header class="navbar">
         <h1>Backpack</h1>
-        
+
         <div class="nav-links">
             <a href="">Donate</a>
             <a href="">Subscription</a>
-            
-            <select id="bagsOption" onchange="showLeftOptions()">
+
+            <select id="bagsOption">
                 <option value="bags">Bags</option>
                 <option value="studentBagOption">Student</option>
                 <option value="officeBagOption">Office</option>
                 <option value="travelBagOption">Travel</option>
             </select>
-            
+
             <a href="profile.html">
-                <img class="profile-img"
-                src="https://images.pexels.com/photos/32703420/pexels-photo-32703420.jpeg">
+                <img class="profile-img" src="https://images.pexels.com/photos/32703420/pexels-photo-32703420.jpeg">
             </a>
         </div>
     </header>
-    
+
     <!-- MAIN LAYOUT -->
     <main class="layout">
-        
-        <!-- LEFT SIDEBAR -->
+
+        <!-- left sidebar -->
         <aside class="sidebar">
-            <h3>Menu</h3>
-            
-            <details>
-                <summary>Books</summary>
-                <a href="#physics">Physics</a>
-                <a href="#chemistry">Chemistry</a>
-                <a href="#math">Math</a>
-            </details>
-            
-            <details>
-                <summary>Tests</summary>
-                <a href="#weekly">Weekly</a>
-                <a href="#monthly">Monthly</a>
-            </details>
-            
-            <details>
-                <summary>Office</summary>
-                <a href="#calendar">Calendar</a>
-                <a href="#documents">Documents</a>
-            </details>
-            
-            <a href="chat.html">Chat</a>
+            <div class="sidebar-header">
+                <h3>Contains</h3>
+                <button id="toggleSidebar" class="toggle-btn">☰</button>
+            </div>
+
+            <div class="menu-group" data-menu="student">
+                <details>
+                    <summary>Books</summary>
+                    <a href="#physics">Physics</a>
+                    <a href="#chemistry">Chemistry</a>
+                    <a href="#math">Math</a>
+                </details>
+
+                <details>
+                    <summary>Tests</summary>
+                    <a href="#weekly">Weekly</a>
+                    <a href="#monthly">Monthly</a>
+                </details>
+                <details>
+                    <summary>Assignment</summary>
+                    <a href="#assignment1">1st Semester</a>
+                    <a href="#assignment2">2nd Semester</a>
+                </details>
+            </div>
+
+            <div class="menu-group" data-menu="office">
+                <details>
+                    <summary>Office</summary>
+                    <a href="#calendar">Calendar</a>
+                    <a href="#documents">Documents</a>
+                    <a href="#files">Files</a>
+                    <a href="#images">Images</a>
+                </details>
+            </div>
+            <div class="menu-group" data-menu="travel">
+                <details>
+                    <summary>Travel</summary>
+                    <a href="#maps">Maps</a>
+                    <a href="#schedule">Schedule</a>
+                    <a href="#photos">Photos</a>
+                    <a href="#videos">Videos</a>
+                </details>
+            </div>
+            <div class="menu-group" data-menu="default">
+                <a href="chat.html">Chat</a>
+            </div>
+
         </aside>
-        
+
         <!-- CENTER -->
         <section class="center-content">
-            <img id="mainImg"
-            src="https://images.pexels.com/photos/9321607/pexels-photo-9321607.jpeg">
+            <img id="mainImg" src="" alt="">
         </section>
-        
+
         <!-- RIGHT -->
         <aside class="right-sidebar">
             <h3>Tools</h3>
-            
-            <button>Tool 1</button>
+
+            <button onclick="toggleStopwatch()">Stopwatch</button>
             <button>Tool 2</button>
             <button>Tool 3</button>
-            
+
             <button>
                 <img src="https://cdn-icons-png.flaticon.com/128/891/891175.png">
                 Calculator
             </button>
         </aside>
-        
+        <div id="stopwatch" class="tool-box">
+
+            <h4>⏱ Stopwatch</h4>
+
+            <div id="time">00:00:00</div>
+
+            <div class="controls">
+                <button id="startBtn">Start</button>
+                <button id="stopBtn">Stop</button>
+                <button id="resetBtn">Reset</button>
+            </div>
+
+        </div>
+
     </main>
-    
-    
+
+
     <script src="homePage_script.js"></script>
 </body>
+
 </html>
