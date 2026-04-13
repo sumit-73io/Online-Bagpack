@@ -101,4 +101,29 @@ document.getElementById("resetBtn").addEventListener("click", () => {
   updateTime();
 });
 
+// upload file
+async function uploadFile(file) {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  await fetch("http://localhost:5000/api/files/upload", {
+    method: "POST",
+    body: formData
+  });
+}
+
+
+//connecting upload button to file input
+document.getElementById("uploadBtn").addEventListener("click", () => {
+  const fileInput = document.getElementById("fileInput");
+  const file = fileInput.files[0];
+
+  if (!file) {
+    alert("Please choose a file first");
+    return;
+  }
+
+  uploadFile(file);
+});
+
 
