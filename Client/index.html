@@ -15,8 +15,10 @@
 
     <!-- HEADER -->
     <header class="navbar">
-        <!-- <h1>Backpack</h1> -->
-        <img class="logo" src="images/Logo.png">
+        <!-- logo name and logo image -->
+        <a href="index.html" class="logo-link">
+            <img class="logo" src="images/Logo.png">
+        </a>
 
         <div class="nav-links">
             <a href="">Donate</a>
@@ -44,23 +46,24 @@
                 <h3>Contains</h3>
                 <button id="toggleSidebar" class="toggle-btn">☰</button>
             </div>
-            <input type="file" id="fileInput">
-            <button id="uploadBtn">Upload File</button>
+            <!-- <input type="file" id="fileInput">
+            <button id="uploadBtn">Upload File</button> -->
 
             <div class="menu-group" data-menu="student">
-                <details>
+                <details data-subject="books">
                     <summary>Books</summary>
                     <a href="#physics">Physics</a>
                     <a href="#chemistry">Chemistry</a>
                     <a href="#math">Math</a>
                 </details>
 
-                <details>
+                <details data-subject="tests">
                     <summary>Tests</summary>
                     <a href="#weekly">Weekly</a>
                     <a href="#monthly">Monthly</a>
                 </details>
-                <details>
+
+                <details data-subject="assignment">
                     <summary>Assignment</summary>
                     <a href="#assignment1">1st Semester</a>
                     <a href="#assignment2">2nd Semester</a>
@@ -93,22 +96,77 @@
 
         <!-- CENTER -->
         <section class="center-content">
-            <img id="mainImg" src="" alt="">
+
+            <div class="file-system">
+
+                <!-- 🔹 Top Bar -->
+                <div class="file-topbar">
+
+                    <!-- Path -->
+                    <div class="path" id="pathBar">
+                        Home
+                    </div>
+
+                    <!-- Options -->
+                    <div class="options">
+                        <button id="menuBtn" onclick="openMenu()">⋮</button>
+
+                        <div class="dropdown" id="dropdownMenu">
+                            <button onclick="createFolder()">📁 New Folder</button>
+                            <button onclick="triggerUpload()">📤 Upload</button>
+                            <button onclick="enableSelectionMode()">✅ Select</button>
+                            <button onclick="renameItem()">✏ Rename</button>
+                            <button onclick="deleteItem()">🗑 Delete</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 🔹 File Grid -->
+                <div class="file-grid" id="fileGrid">
+                    <!-- Files & folders will come here -->
+                </div>
+
+            </div>
+
+            <!-- Hidden file input -->
+            <input type="file" id="fileInput" hidden>
+
+
+
+            <!-- <input type="file" id="fileInput">
+            <button id="uploadBtn">Upload File</button>
+            <img id="mainImg" src="" alt=""> -->
+
+
         </section>
 
         <!-- RIGHT -->
         <aside class="right-sidebar">
-            <h3>Tools</h3>
 
-            <button onclick="toggleStopwatch()">Stopwatch</button>
-            <button>Tool 2</button>
-            <button>Tool 3</button>
+            <div class="tools-header">
+                <h3>Tools</h3>
+                <button id="toggleTools" class="toggle-btn always-visible">☰</button>
+            </div>
 
-            <button>
-                <img src="https://cdn-icons-png.flaticon.com/128/891/891175.png">
-                Calculator
-            </button>
+            <div class="tools-content">
+
+                <button onclick="toggleStopwatch()">Stopwatch</button>
+                <button>Tool 2</button>
+                <button>Tool 3</button>
+
+                <button>
+                    <img src="https://cdn-icons-png.flaticon.com/128/891/891175.png">
+                    Calculator
+                </button>
+
+            </div>
         </aside>
+
+
+
+
+
         <div id="stopwatch" class="tool-box">
 
             <h4>⏱ Stopwatch</h4>

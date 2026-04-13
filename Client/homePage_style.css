@@ -6,9 +6,10 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* BODY  */
+/* Body  */
 body {
-  background: linear-gradient(to right, #1c0507, #5f6060)
+  /* background: linear-gradient(to right, #493f3f, #ffffff) */
+  background: #e4e3e3;;
 }
 
 /* logo */
@@ -65,6 +66,15 @@ body {
   padding: 0px;
   margin-left: 0px;
   margin-top: 20px;
+}
+/* Sidebar toggle button */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 10px;
+  ;
 }
 
 /* sidebar */
@@ -123,7 +133,7 @@ body {
 
 /* Hover effect */
 .sidebar summary:hover {
-  background: #dcdcdc;
+  background: #4f7cff;
 }
 
 /* Open state */
@@ -131,6 +141,7 @@ body {
   background: #4f7cff;
   color: white;
 }
+
 
 /* Sidebar links */
 .sidebar a {
@@ -149,17 +160,106 @@ body {
 
 /* Center content */
 .center-content {
-  background-image: url("https://images.pexels.com/photos/9321607/pexels-photo-9321607.jpeg");
-  background-size: cover;
   background-position: center;
+  background: white;
   flex: 1;
-  /* background: none; */
   height: 600px;
   min-height: 650px;
   padding: 20px;
   border-radius: 20px;
   text-align: center;
-  /* box-shadow: 0 5px 15px rgba(0,0,0,0.1); */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.file-system {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top bar */
+.file-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #f4f4f4;
+  border-radius: 10px;
+}
+
+/* Path */
+.path {
+  font-weight: bold;
+}
+
+/* Options */
+.options {
+  position: relative;
+}
+
+.options button {
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Dropdown */
+.dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: white;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.dropdown button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown button:hover {
+  background: #eee;
+}
+
+/* File grid */
+.file-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* File card */
+.file-card {
+  width: 100px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.file-card:hover {
+  background: #f0f0f0;
+}
+.selection-mode .file-card {
+  cursor: pointer;
+}
+.selection-mode .file-card {
+  cursor: pointer;
+}
+
+.selection-mode .file-card:hover {
+  background: #e8f0ff;
 }
 
 /* Image */
@@ -168,6 +268,10 @@ body {
   max-width: 500px;
   border-radius: 12px;
   margin-bottom: 15px;
+}
+.file-card.selected {
+  background: #d0e4ff;
+  border: 2px solid #4f7cff;
 }
 
 /* Right sidebar - tools */
@@ -191,8 +295,8 @@ body {
   margin: 10px 0;
   border: none;
   border-radius: 8px;
-  background: #4f7cff;
-  color: white;
+  /* background: #4f7cff; */
+  color: black;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -202,6 +306,7 @@ body {
   background: #3a63d8;
 }
 
+
 /* Button image */
 .right-sidebar button img {
   width: 18px;
@@ -209,15 +314,6 @@ body {
   vertical-align: middle;
 }
 
-/* Sidebar toggle button */
-.sidebar-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 80px;
-  align-items: center;
-  margin-bottom: 10px;
-  ;
-}
 
 /* Fix button style */
 .toggle-btn {
@@ -227,6 +323,20 @@ body {
   color: black;
   border-radius: 6px;
   cursor: pointer;
+}
+
+/* Keep only icons or button visible */
+/* .toggle-btn {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+
+  border: none;
+  background: none;
+  cursor: pointer;
+} */
+.toggle-btn:hover {
+  background: #4f7cff;
 }
 
 
@@ -252,16 +362,6 @@ body {
   display: none;
 }
 
-/* Keep only icons or button visible */
-.toggle-btn {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-
-  border: none;
-  background: none;
-  cursor: pointer;
-}
 
 
 
@@ -291,8 +391,38 @@ body {
   cursor: pointer;
 }
 
+
 .controls button:hover {
   background: #3a63d8;
+}
+
+.right-sidebar {
+  width: 200px;
+  min-width: 200px;
+  transition: 0.3s ease;
+  overflow: hidden;
+}
+
+/* Collapsed */
+.right-sidebar.collapsed{
+  width: 60px;
+  min-width: 60px;
+}
+
+/* Header alignment */
+.tools-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Hide content when collapsed */
+.right-sidebar.collapsed button:not(.always-visible),
+.right-sidebar.collapsed h3,
+.right-sidebar.collapsed .tool-box {
+  display: none;
 }
 
 /* ===== RESPONSIVE (MOBILE) ===== */

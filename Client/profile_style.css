@@ -11,19 +11,42 @@ body {
   background: linear-gradient(to right, #a1c4fd, #fbc2eb);
 }
 
-/* Back Button */
-.back-btn {
-  margin: 20px;
-  padding: 10px 15px;
-  border-radius: 10px;
-  background: #ddd;
-  border: none;
-  cursor: pointer;
+/* logo */
+.logo {
+  width: auto;
+  height: 50px;
+  filter: drop-shadow(0 8px 4px rgba(0, 0, 0, 0.3));
 }
 
-.back-btn a {
+/* Navbar*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px 20px;
+  margin: 0px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+/* Right side of navbar */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Links */
+.nav-links a {
   text-decoration: none;
-  color: black;
+  color: #333;
+  font-weight: 500;
+}
+/* Profile image */
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* Layout */
@@ -68,15 +91,6 @@ body {
   border-radius: 20px;
   padding: 25px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* Topbar */
-.topbar h2 {
-  margin-bottom: 5px;
-}
-
-.topbar p {
-  color: gray;
 }
 
 /* Profile Header */
