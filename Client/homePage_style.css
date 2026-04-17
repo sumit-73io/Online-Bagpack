@@ -189,6 +189,7 @@ body {
   flex-direction: column;
 }
 
+
 /* Top bar */
 .file-topbar {
   display: flex;
@@ -233,6 +234,7 @@ body {
   display: block;
   width: 100%;
   padding: 8px;
+  border-radius: 3px;
   text-align: left;
   background: none;
   border: none;
@@ -241,6 +243,7 @@ body {
 
 .dropdown button:hover {
   background:var(--blue);
+  color: var(--text_h);
 }
 
 /* File grid */
@@ -252,18 +255,51 @@ body {
 }
 
 /* File card */
-.file-card {
+/* .file-card {
   width: 100px;
+  height: 100px;
   padding: 10px;
   background: #fff;
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+} */
+.file-card {
+  width: 120px;
+  height: 140px; /* 🔥 fixed height */
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 10px;
+  background: #f5f5f5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Limit text + add "..." */
+.file-card div:last-child {
+  font-size: 13px;
+  text-align: center;
+  max-width: 100%;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; /* this adds ... */
+}
+.file-img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
 }
 
 .file-card:hover {
-  background: #f0f0f0;
+  background: var(--black);
+  color: var(--text_h);
+  font-weight: bold;
 }
 .selection-mode .file-card {
   cursor: pointer;
@@ -273,7 +309,7 @@ body {
 }
 
 .selection-mode .file-card:hover {
-  background: #e8f0ff;
+  background: var(--black);
 }
 
 /* Image */
@@ -284,8 +320,8 @@ body {
   margin-bottom: 15px;
 }
 .file-card.selected {
-  background: #d0e4ff;
-  border: 2px solid var(--black);
+  background: var(--blue);
+  border: 3px solid var(--black);
 }
 
 /* Right sidebar - tools */

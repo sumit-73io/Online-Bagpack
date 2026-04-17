@@ -11,28 +11,50 @@ let currentFolder = null;
 function selectSubject(subject) {
   currentSubject = subject;
   currentFolder = null;
-
+  // console.log("selectsubject is called")
   updatePath();
   loadFiles();
 }
 
 async function loadFiles() {
-  const res = await fetch(
-    `http://localhost:5000/api/files?subject=${currentSubject}&parent=${currentFolder || ""}`
-  );
+  // const res = await fetch(
+  //   `http://localhost:5000/api/files?subject=${currentSubject}&parent=${currentFolder || ""}`
+  // );
+  const res = await fetch("http://localhost:5000/api/files");
 
   const data = await res.json();
+  console.log("Data: ", data)
   const grid = document.getElementById("fileGrid");
   grid.innerHTML = "";
 
   data.forEach(item => {
     const div = document.createElement("div");
     div.className = "file-card";
+    console.log(data);
 
-    div.innerHTML = `
-      <div>${item.type === "folder" ? "📁" : "📄"}</div>
+
+
+    if (item.type === "folder") {
+      div.innerHTML = `
+    <div style="font-size:40px;">📁</div>
+    <div>${item.name}</div>
+  `;
+    } else {
+      if (item.name.match(/\.(jpg|jpeg|png|gif)$/i)) {
+        div.innerHTML = `
+      <img src="http://localhost:5000${item.path}" class="file-img"/>
       <div>${item.name}</div>
     `;
+      } else {
+        div.innerHTML = `
+      <div style="font-size:40px;">📄</div>
+      <div>${item.name}</div>
+    `;
+      }
+    }
+
+
+
 
     div.onclick = () => {
 
@@ -210,7 +232,9 @@ async function renameItem() {
 // ===============================
 // MAIN DOM LOADED BLOCK (IMPORTANT)
 // ===============================
-
+function handleUploadClick() {
+  document.getElementById("fileInput").click();
+}
 document.addEventListener("DOMContentLoaded", () => {
 
   // Sidebar binding
@@ -218,10 +242,54 @@ document.addEventListener("DOMContentLoaded", () => {
   selectSubject("books");
 
   // File input listener
+  // const fileInput = document.getElementById("fileInput");
+  // if (fileInput) {
+  //   fileInput.addEventListener("change", handleUpload);
+  // }
+
+
+
   const fileInput = document.getElementById("fileInput");
+
   if (fileInput) {
-    fileInput.addEventListener("change", handleUpload);
+    fileInput.addEventListener("change", async () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("subject", currentSubject);
+      formData.append("parent", currentFolder || "");
+
+      console.log("Uploading file...");
+
+      const res = await fetch("http://localhost:5000/api/files/upload", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await res.json();
+      console.log("UPLOAD RESPONSE:", data);
+
+      loadFiles();
+    });
   }
+
+  const uploadFileBtn = document.getElementById("uploadFileBtn");
+
+  if (uploadFileBtn) {
+    uploadFileBtn.addEventListener('click', () => {
+      triggerUpload();
+    });
+  }
+
+
+
+
+
+
+
+
 
   // LEFT SIDEBAR TOGGLE
   const toggleBtn = document.getElementById("toggleSidebar");
@@ -324,13 +392,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const toggleStopwatchBtn = document.getElementById("stopwatchBtn");
 if (toggleStopwatchBtn) {
-  toggleStopwatchBtn.addEventListener("click",()=>{
-  const stopwatchBtn = document.getElementById("stopwatchBtn");
-  stopwatchBtn.classList.toggle("active");
+  toggleStopwatchBtn.addEventListener("click", () => {
+    const stopwatchBtn = document.getElementById("stopwatchBtn");
+    stopwatchBtn.classList.toggle("active");
 
-  toggleStopwatch();
-  } 
-);
+    toggleStopwatch();
+  }
+  );
 }
 
 function toggleStopwatch() {
@@ -360,11 +428,11 @@ const toggleCalculatorBtn = document.getElementById("calculatorBtn");
 const createFolderBtn = document.getElementById("createFolderBtn");
 const uploadFileBtn = document.getElementById("uploadFileBtn");
 const selectionBtn = document.getElementById("selectBtn");
-const renameBtn  = document.getElementById("renameBtn");
+const renameBtn = document.getElementById("renameBtn");
 const deleteBtn = document.getElementById("deleteBtn");
 
 
-toggleCalculatorBtn.addEventListener('click', () =>{
+toggleCalculatorBtn.addEventListener('click', () => {
   toggleCalculator();
   // console.log("click working")
 })
@@ -380,6 +448,6 @@ selectionBtn.addEventListener('click', () => {
 renameBtn.addEventListener('click', () => {
   renameItem();
 });
-deleteBtn.addEventListener('click', () =>{
+deleteBtn.addEventListener('click', () => {
   deleteItem();
 })

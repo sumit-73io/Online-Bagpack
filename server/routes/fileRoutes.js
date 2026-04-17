@@ -3,8 +3,17 @@ const router = express.Router();
 const multer = require("multer");
 const File = require("../models/File");
 
+//kkkkkkkkkkkkk
+// const parent = req.body.parent || null;
+
+
+
+
+const path = require("path");
+
+
 const storage = multer.diskStorage({
-  destination: "uploads/",
+  destination: path.join(__dirname, "../uploads"),
   filename: (req, file, cb) => {
     cb(null, Date.now() + "-" + file.originalname);
   }
@@ -14,31 +23,71 @@ const upload = multer({ storage });
 
 /* Upload File */
 router.post("/upload", upload.single("file"), async (req, res) => {
-  const newFile = new File({
-    name: req.file.originalname,
-    type: "file",
-    path: req.file.path
-  });
+  try {
+    if (!req.file) {
+      return res.status(400).json({ message: "No file uploaded" });
+    }
+    console.log("Saved file at:", req.file.path);
 
-  await newFile.save();
-  res.json(newFile);
+    const subject = req.body.subject || "books";
+    const parent = req.body.parent || null;
+
+    console.log("UPLOAD SUBJECT:", subject);
+
+    const newFile = new File({
+      name: req.file.originalname,
+      type: "file",
+      path: "/uploads/" + req.file.filename,
+      subject: req.body.subject || "books",
+      parent: req.body.parent || null
+    });
+
+    await newFile.save();
+    res.json(newFile);
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
 });
 
 /* Create Folder */
 router.post("/folder", async (req, res) => {
-  const folder = new File({
-    name: req.body.name,
-    type: "folder"
-  });
+  try {
+    const { name, subject, parent } = req.body;
 
-  await folder.save();
-  res.json(folder);
+    const folder = new File({
+      name,
+      type: "folder",
+      subject,
+      parent: parent || null
+    });
+
+    await folder.save();
+    res.json(folder);
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
 });
 
-/* Get All */
+/* Get Files */
 router.get("/", async (req, res) => {
-  const files = await File.find();
-  res.json(files);
+  try {
+    const { subject, parent } = req.query;
+
+    const files = await File.find({
+      subject,
+      parent: parent || null
+    });
+
+    res.json(files);
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
 });
 
 /* Delete */
@@ -59,74 +108,3 @@ router.put("/:id", async (req, res) => {
 });
 
 module.exports = router;
-
-
-
-
-
-
-// file System Logic
-router.post("/folder", async (req, res) => {
-  const { name, subject, parent } = req.body;
-
-  const folder = new File({
-    name,
-    type: "folder",
-    subject,
-    parent: parent || null
-  });
-
-  await folder.save();
-  res.json(folder);
-});
-
-router.post("/upload", upload.single("file"), async (req, res) => {
-  const { subject, parent } = req.body;
-
-  const newFile = new File({
-    name: req.file.originalname,
-    type: "file",
-    path: req.file.path,
-    subject,
-    parent: parent || null
-  });
-
-  await newFile.save();
-  res.json(newFile);
-});
-
-
-
-// Create folder from the top menu
-async function createFolder() {
-  const name = prompt("Folder name:");
-  if (!name) return;
-
-  await fetch("http://localhost:5000/api/files/folder", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      name,
-      subject: currentSubject,
-      parent: currentFolder
-    })
-  });
-
-  loadFiles();
-}
-
-
-
-
-router.get("/", async (req, res) => {
-  const { subject, parent } = req.query;
-
-  const files = await File.find({
-    subject,
-    parent: parent || null
-  });
-
-  res.json(files);
-});
