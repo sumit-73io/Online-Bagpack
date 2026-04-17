@@ -275,6 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const stopBtn = document.getElementById("stopBtn");
   const resetBtn = document.getElementById("resetBtn");
 
+
   let timer = null;
   let seconds = 0;
 
@@ -320,3 +321,65 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+const toggleStopwatchBtn = document.getElementById("stopwatchBtn");
+if (toggleStopwatchBtn) {
+  toggleStopwatchBtn.addEventListener("click",()=>{
+  const stopwatchBtn = document.getElementById("stopwatchBtn");
+  stopwatchBtn.classList.toggle("active");
+
+  toggleStopwatch();
+  } 
+);
+}
+
+function toggleStopwatch() {
+  let val = document.getElementById("stopwatch").style.display;
+  if (val === "block") {
+    document.getElementById("stopwatch").style.display = "none";
+    return;
+  }
+  document.getElementById("stopwatch").style.display = "block";
+  // document.getElementById("stopwatchBtn").classList.add("active");
+
+
+}
+function toggleCalculator() {
+  let val = document.getElementById("calculator").style.display;
+  if (val === "block") {
+    document.getElementById("calculator").style.display = "none";
+    document.getElementById("calculatorBtn").classList.remove("active");
+    return;
+  }
+  document.getElementById("calculator").style.display = "block";
+  document.getElementById("calculatorBtn").classList.add("active");
+}
+
+
+const toggleCalculatorBtn = document.getElementById("calculatorBtn");
+const createFolderBtn = document.getElementById("createFolderBtn");
+const uploadFileBtn = document.getElementById("uploadFileBtn");
+const selectionBtn = document.getElementById("selectBtn");
+const renameBtn  = document.getElementById("renameBtn");
+const deleteBtn = document.getElementById("deleteBtn");
+
+
+toggleCalculatorBtn.addEventListener('click', () =>{
+  toggleCalculator();
+  // console.log("click working")
+})
+createFolderBtn.addEventListener('click', () => {
+  createFolder();
+})
+uploadFileBtn.addEventListener('click', () => {
+  triggerUpload();
+})
+selectionBtn.addEventListener('click', () => {
+  enableSelectionMode();
+})
+renameBtn.addEventListener('click', () => {
+  renameItem();
+});
+deleteBtn.addEventListener('click', () =>{
+  deleteItem();
+})

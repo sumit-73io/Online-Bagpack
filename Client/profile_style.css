@@ -59,6 +59,7 @@ body {
 /* Sidebar */
 .sidebar {
   width: 220px;
+  max-height: 290px;
   background: #6d5c5c;
   padding: 20px;
   border-radius: 20px;

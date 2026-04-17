@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bagpack</title>
     <link rel="stylesheet" href="homePage_style.css">
+    <link rel="stylesheet" href="cal.css">
     <link rel="icon" type="image/x-icon" href="images/titleWhite.png">
 </head>
 
@@ -46,8 +47,7 @@
                 <h3>Contains</h3>
                 <button id="toggleSidebar" class="toggle-btn">☰</button>
             </div>
-            <!-- <input type="file" id="fileInput">
-            <button id="uploadBtn">Upload File</button> -->
+
 
             <div class="menu-group" data-menu="student">
                 <details data-subject="books">
@@ -55,6 +55,12 @@
                     <a href="#physics">Physics</a>
                     <a href="#chemistry">Chemistry</a>
                     <a href="#math">Math</a>
+                </details>
+                <details data-subject="class">
+                    <summary>Class</summary>
+                    <a href="#webDev">Web Development</a>
+                    <a href="#operatingSystem">Operating System</a>
+                    <a href="#python">Python</a>
                 </details>
 
                 <details data-subject="tests">
@@ -112,11 +118,11 @@
                         <button id="menuBtn" onclick="openMenu()">⋮</button>
 
                         <div class="dropdown" id="dropdownMenu">
-                            <button onclick="createFolder()">📁 New Folder</button>
-                            <button onclick="triggerUpload()">📤 Upload</button>
-                            <button onclick="enableSelectionMode()">✅ Select</button>
-                            <button onclick="renameItem()">✏ Rename</button>
-                            <button onclick="deleteItem()">🗑 Delete</button>
+                            <button id="createFolderBtn">New Folder</button>
+                            <button id="uploadFileBtn" >Upload</button>
+                            <button id="selectBtn" >Select</button>
+                            <button id="renameBtn" >Rename</button>
+                            <button id="deleteBtn" >Delete</button>
                         </div>
                     </div>
 
@@ -151,14 +157,14 @@
 
             <div class="tools-content">
 
-                <button onclick="toggleStopwatch()">Stopwatch</button>
-                <button>Tool 2</button>
-                <button>Tool 3</button>
-
-                <button>
+                <button  id="stopwatchBtn" class="tool-btn-stopwatch">Stopwatch</button>
+                
+                <button id="calculatorBtn" >
                     <img src="https://cdn-icons-png.flaticon.com/128/891/891175.png">
                     Calculator
                 </button>
+                <button>Tool 3</button>
+                <button>Tool 4</button>
 
             </div>
         </aside>
@@ -166,25 +172,72 @@
 
 
 
+        <div class="toolsContainer">
 
-        <div id="stopwatch" class="tool-box">
+            <div id="stopwatch" class="tool-box">
 
-            <h4>⏱ Stopwatch</h4>
+                <h4>⏱ Stopwatch</h4>
 
-            <div id="time">00:00:00</div>
+                <div id="time">00:00:00</div>
 
-            <div class="controls">
-                <button id="startBtn">Start</button>
-                <button id="stopBtn">Stop</button>
-                <button id="resetBtn">Reset</button>
+                <div class="controls">
+                    <button id="startBtn">Start</button>
+                    <button id="stopBtn">Stop</button>
+                    <button id="resetBtn">Reset</button>
+                </div>
+
+            </div>
+            <div id="calculator" class="tool-box">
+
+                <h4>Calculator</h4>
+                    
+                    <!--BEGIN OF MATH CALCULATOR CODE-->
+
+                    <table>
+                        <tr>
+                            <td id="sciout">
+                                <div>
+                                    <div id="sciOutPut">0</div>
+                                </div>
+                                <div style="padding-top:3px;">
+                                    <div><span onclick="r(7)" class="scinm">7</span><span onclick="r(8)"
+                                            class="scinm">8</span><span onclick="r(9)" class="scinm">9</span><span
+                                            onclick="r('+')" class="sciop">+</span><span onclick="r('MS')"
+                                            class="sciop">MS</span></div>
+                                    <div><span onclick="r(4)" class="scinm">4</span><span onclick="r(5)"
+                                            class="scinm">5</span><span onclick="r(6)" class="scinm">6</span><span
+                                            onclick="r('-')" class="sciop">&ndash;</span><span onclick="r('M+')"
+                                            class="sciop">M+</span></div>
+                                    <div><span onclick="r(1)" class="scinm">1</span><span onclick="r(2)"
+                                            class="scinm">2</span><span onclick="r(3)" class="scinm">3</span><span
+                                            onclick="r('*')" class="sciop">&#215;</span><span onclick="r('M-')"
+                                            class="sciop">M-</span></div>
+                                    <div><span onclick="r(0)" class="scinm">0</span><span onclick="r('.')"
+                                            class="scinm">.</span><span onclick="r('EXP')" class="sciop">EXP</span><span
+                                            onclick="r('/')" class="sciop">&#247;</span><span onclick="r('MR')"
+                                            class="sciop">MR</span></div>
+                                    <div><span onclick="r('+/-')" class="sciop">&#177;</span><span onclick="r('sqrt')"
+                                            class="sciop">&#8730;x</span><span onclick="r('C')"
+                                            class="scieq">C</span><span onclick="r('=')" class="scieq">=</span><span
+                                            onclick="r('MC')" class="sciop">MC</span></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- <tr>
+                            <td id="calfootnote">powered by <a href="https://www.calculator.net"
+                                    rel="nofollow">calculator.net</a></td>
+                        </tr> -->
+                    </table>
+                    <!--END OF MATH CALCULATOR CODE-->
+                </div>
             </div>
 
-        </div>
 
     </main>
 
 
     <script src="homePage_script.js"></script>
+    <script src="cal.js"></script>
 </body>
 
 </html>

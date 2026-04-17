@@ -1,5 +1,11 @@
+
+
+
 /*reset*/
 * {
+  --black:rgb(51, 68, 67);
+  --text_h:rgb(250, 234, 177);
+  --blue:rgb(52, 101, 109);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,9 +22,13 @@ body {
 .logo {
   width: auto;
   height: 50px;
-  filter: drop-shadow(0 8px 4px rgba(0, 0, 0, 0.3));
+  
 }
-
+.logo:hover {
+  width: auto;
+  height: 50px;
+  filter:drop-shadow(0 3.5px 1px rgba(147, 146, 146, 0.3))
+}
 /* Navbar*/
 .navbar {
   display: flex;
@@ -133,13 +143,14 @@ body {
 
 /* Hover effect */
 .sidebar summary:hover {
-  background: #4f7cff;
+  background:var(--black);
+  color:var(--text_h);
 }
 
 /* Open state */
 .sidebar details[open] summary {
-  background: #4f7cff;
-  color: white;
+  background:var(--black);
+  color: var(--text_h);
 }
 
 
@@ -155,7 +166,8 @@ body {
 
 /* Hover links */
 .sidebar a:hover {
-  background: #eee;
+  background:var(--blue);
+  color: var(--text_h);
 }
 
 /* Center content */
@@ -213,9 +225,11 @@ body {
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   border-radius: 8px;
   padding: 5px;
+  width: 140px;
 }
 
 .dropdown button {
+  font-size: 16px;
   display: block;
   width: 100%;
   padding: 8px;
@@ -226,7 +240,7 @@ body {
 }
 
 .dropdown button:hover {
-  background: #eee;
+  background:var(--blue);
 }
 
 /* File grid */
@@ -271,7 +285,7 @@ body {
 }
 .file-card.selected {
   background: #d0e4ff;
-  border: 2px solid #4f7cff;
+  border: 2px solid var(--black);
 }
 
 /* Right sidebar - tools */
@@ -295,15 +309,20 @@ body {
   margin: 10px 0;
   border: none;
   border-radius: 8px;
-  /* background: #4f7cff; */
+  /* background: var(--black); */
+  /* color:var(--text_h);  */
   color: black;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
 }
 
 /* Hover */
 .right-sidebar button:hover {
-  background: #3a63d8;
+  background: var(--black);
+  color:var(--text_h);
+  font-weight: bold;
 }
 
 
@@ -317,10 +336,10 @@ body {
 
 /* Fix button style */
 .toggle-btn {
+  color: var(--black);
   padding: 6px 10px;
   border: none;
   background: white;
-  color: black;
   border-radius: 6px;
   cursor: pointer;
 }
@@ -336,7 +355,8 @@ body {
   cursor: pointer;
 } */
 .toggle-btn:hover {
-  background: #4f7cff;
+  background: var(--black);
+  color:var(--text_h);
 }
 
 
@@ -375,32 +395,46 @@ body {
   text-align: center;
 }
 
+.toolsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 233px;
+}
+
 #time {
   font-size: 24px;
   margin: 10px 0;
   font-weight: bold;
 }
 
-.controls button {
+.controls button{
   margin: 5px;
   padding: 8px 12px;
   border: none;
   border-radius: 6px;
-  background: #4f7cff;
-  color: white;
+  background: var(--black);
+  color:var(--text_h);  
   cursor: pointer;
+}
+
+body .active {
+  background: var(--black);
+  color:var(--text_h);
 }
 
 
 .controls button:hover {
-  background: #3a63d8;
+  background: var(--black);
+  color:var(--text_h);
 }
 
 .right-sidebar {
   width: 200px;
   min-width: 200px;
   transition: 0.3s ease;
-  overflow: hidden;
+  overflow:hidden
 }
 
 /* Collapsed */
