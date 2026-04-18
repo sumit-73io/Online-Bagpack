@@ -3,10 +3,13 @@
 // ===============================
 
 
+let currentFolderName = null;
 let selectedItemId = null;
 let isSelectionMode = false;
 let currentSubject = "books";
 let currentFolder = null;
+// let currentFolder = null; // root = null
+// currentFolderName = current?.parentName || null;
 
 function selectSubject(subject) {
   currentSubject = subject;
@@ -20,7 +23,11 @@ async function loadFiles() {
   // const res = await fetch(
   //   `http://localhost:5000/api/files?subject=${currentSubject}&parent=${currentFolder || ""}`
   // );
-  const res = await fetch("http://localhost:5000/api/files");
+
+  const res = await fetch(
+  `http://localhost:5000/api/files?subject=${currentSubject}&parent=${currentFolder || ""}`
+);
+
 
   const data = await res.json();
   console.log("Data: ", data)
@@ -56,6 +63,33 @@ async function loadFiles() {
 
 
 
+    // div.onclick = () => {
+
+    //   // 🔹 SELECTION MODE
+    //   if (isSelectionMode) {
+    //     selectedItemId = item._id;
+
+    //     document.querySelectorAll(".file-card").forEach(card => {
+    //       card.classList.remove("selected");
+    //     });
+
+    //     div.classList.add("selected");
+    //     return; // stop further action
+    //   }
+
+    //   // 🔹 NORMAL MODE
+    //   if (item.type === "folder") {
+    //     // currentFolder = item._id;
+    //     currentFolder = item._id;
+    //     currentFolderName = item.name;
+    //     updatePath();
+    //     loadFiles();
+    //   } else {
+    //     // window.open(`http://localhost:5000/${item.path}`);
+    //     // window.open(`http://localhost:5000${item.path}`);
+    //     openPreview(item);
+    //   }
+    // };
     div.onclick = () => {
 
       // 🔹 SELECTION MODE
@@ -67,16 +101,21 @@ async function loadFiles() {
         });
 
         div.classList.add("selected");
-        return; // stop further action
+        return;
       }
 
       // 🔹 NORMAL MODE
       if (item.type === "folder") {
         currentFolder = item._id;
+        currentFolderName = item.name;
+
+        console.log("Entering folder:", item.name); // 🔥 debug
+
         updatePath();
         loadFiles();
       } else {
-        window.open(`http://localhost:5000/${item.path}`);
+        console.log("Opening file:", item.path); // 🔥 debug
+        openPreview(item);
       }
     };
 
@@ -105,11 +144,25 @@ function bindSidebarSubjects() {
 // PATH BAR
 // ===============================
 
+// function updatePath() {
+//   const pathBar = document.getElementById("pathBar");
+//   if (pathBar) {
+//     pathBar.textContent = "Home / " + currentSubject;
+//   }
+// }
+
 function updatePath() {
   const pathBar = document.getElementById("pathBar");
-  if (pathBar) {
-    pathBar.textContent = "Home / " + currentSubject;
+
+  if (!pathBar) return;
+
+  let path = `Home / ${currentSubject}`;
+
+  if (currentFolderName) {
+    path += ` / ${currentFolderName}`;
   }
+
+  pathBar.textContent = path;
 }
 
 // ===============================
@@ -157,7 +210,8 @@ async function createFolder() {
     body: JSON.stringify({
       name,
       subject: currentSubject,
-      parent: currentFolder
+      parent: currentFolder,
+      parentName: currentFolderName
     })
   });
 
@@ -451,3 +505,52 @@ renameBtn.addEventListener('click', () => {
 deleteBtn.addEventListener('click', () => {
   deleteItem();
 })
+
+
+function openPreview(item) {
+  const grid = document.getElementById("fileGrid");
+  const preview = document.getElementById("previewContainer");
+  const content = document.getElementById("previewContent");
+
+  grid.style.display = "none";
+  preview.style.display = "block";
+
+  // Check file type
+  if (item.name.match(/\.(jpg|jpeg|png|gif)$/i)) {
+    content.innerHTML = `
+      <img src="http://localhost:5000${item.path}" style="max-width:100%; max-height:500px;" />
+    `;
+  } else if (item.name.match(/\.pdf$/i)) {
+    content.innerHTML = `
+      <iframe src="http://localhost:5000${item.path}" width="100%" height="500px"></iframe>
+    `;
+  } else {
+    content.innerHTML = `
+      <p>Preview not available</p>
+      <a href="http://localhost:5000${item.path}" target="_blank">Download File</a>
+    `;
+  }
+}
+
+
+function closePreview() {
+  const grid = document.getElementById("fileGrid");
+  const preview = document.getElementById("previewContainer");
+
+  preview.style.display = "none";
+  grid.style.display = "flex";
+}
+
+
+async function goBack() {
+  if (!currentFolder) return;
+
+  const res = await fetch(`http://localhost:5000/api/files/${currentFolder}`);
+  const current = await res.json();
+
+  currentFolder = current.parent || null;
+  currentFolderName = null; // reset name
+
+  updatePath();
+  loadFiles();
+}

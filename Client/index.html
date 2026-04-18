@@ -103,11 +103,16 @@
         <!-- CENTER -->
         <section class="center-content">
 
+            <div id="previewContainer" style="display:none;">
+                <button onclick="closePreview()">⬅ Back</button>
+                <div id="previewContent"></div>
+            </div>
+
             <div class="file-system">
 
                 <!-- 🔹 Top Bar -->
                 <div class="file-topbar">
-
+                    <button onclick="goBack()">⬅ Back</button>
                     <!-- Path -->
                     <div class="path" id="pathBar">
                         Home
@@ -119,10 +124,10 @@
 
                         <div class="dropdown" id="dropdownMenu">
                             <button id="createFolderBtn">New Folder</button>
-                            <button id="uploadFileBtn" onclick="handleUploadClick()" >Upload</button>
-                            <button id="selectBtn" >Select</button>
-                            <button id="renameBtn" >Rename</button>
-                            <button id="deleteBtn" >Delete</button>
+                            <button id="uploadFileBtn" onclick="handleUploadClick()">Upload</button>
+                            <button id="selectBtn">Select</button>
+                            <button id="renameBtn">Rename</button>
+                            <button id="deleteBtn">Delete</button>
                         </div>
                     </div>
 
@@ -158,9 +163,9 @@
 
             <div class="tools-content">
 
-                <button  id="stopwatchBtn" class="tool-btn-stopwatch">Stopwatch</button>
-                
-                <button id="calculatorBtn" >
+                <button id="stopwatchBtn" class="tool-btn-stopwatch">Stopwatch</button>
+
+                <button id="calculatorBtn">
                     <img src="https://cdn-icons-png.flaticon.com/128/891/891175.png">
                     Calculator
                 </button>
@@ -191,47 +196,47 @@
             <div id="calculator" class="tool-box">
 
                 <h4>Calculator</h4>
-                    
-                    <!--BEGIN OF MATH CALCULATOR CODE-->
 
-                    <table>
-                        <tr>
-                            <td id="sciout">
-                                <div>
-                                    <div id="sciOutPut">0</div>
-                                </div>
-                                <div style="padding-top:3px;">
-                                    <div><span onclick="r(7)" class="scinm">7</span><span onclick="r(8)"
-                                            class="scinm">8</span><span onclick="r(9)" class="scinm">9</span><span
-                                            onclick="r('+')" class="sciop">+</span><span onclick="r('MS')"
-                                            class="sciop">MS</span></div>
-                                    <div><span onclick="r(4)" class="scinm">4</span><span onclick="r(5)"
-                                            class="scinm">5</span><span onclick="r(6)" class="scinm">6</span><span
-                                            onclick="r('-')" class="sciop">&ndash;</span><span onclick="r('M+')"
-                                            class="sciop">M+</span></div>
-                                    <div><span onclick="r(1)" class="scinm">1</span><span onclick="r(2)"
-                                            class="scinm">2</span><span onclick="r(3)" class="scinm">3</span><span
-                                            onclick="r('*')" class="sciop">&#215;</span><span onclick="r('M-')"
-                                            class="sciop">M-</span></div>
-                                    <div><span onclick="r(0)" class="scinm">0</span><span onclick="r('.')"
-                                            class="scinm">.</span><span onclick="r('EXP')" class="sciop">EXP</span><span
-                                            onclick="r('/')" class="sciop">&#247;</span><span onclick="r('MR')"
-                                            class="sciop">MR</span></div>
-                                    <div><span onclick="r('+/-')" class="sciop">&#177;</span><span onclick="r('sqrt')"
-                                            class="sciop">&#8730;x</span><span onclick="r('C')"
-                                            class="scieq">C</span><span onclick="r('=')" class="scieq">=</span><span
-                                            onclick="r('MC')" class="sciop">MC</span></div>
-                                </div>
-                            </td>
-                        </tr>
-                        <!-- <tr>
+                <!--BEGIN OF MATH CALCULATOR CODE-->
+
+                <table>
+                    <tr>
+                        <td id="sciout">
+                            <div>
+                                <div id="sciOutPut">0</div>
+                            </div>
+                            <div style="padding-top:3px;">
+                                <div><span onclick="r(7)" class="scinm">7</span><span onclick="r(8)"
+                                        class="scinm">8</span><span onclick="r(9)" class="scinm">9</span><span
+                                        onclick="r('+')" class="sciop">+</span><span onclick="r('MS')"
+                                        class="sciop">MS</span></div>
+                                <div><span onclick="r(4)" class="scinm">4</span><span onclick="r(5)"
+                                        class="scinm">5</span><span onclick="r(6)" class="scinm">6</span><span
+                                        onclick="r('-')" class="sciop">&ndash;</span><span onclick="r('M+')"
+                                        class="sciop">M+</span></div>
+                                <div><span onclick="r(1)" class="scinm">1</span><span onclick="r(2)"
+                                        class="scinm">2</span><span onclick="r(3)" class="scinm">3</span><span
+                                        onclick="r('*')" class="sciop">&#215;</span><span onclick="r('M-')"
+                                        class="sciop">M-</span></div>
+                                <div><span onclick="r(0)" class="scinm">0</span><span onclick="r('.')"
+                                        class="scinm">.</span><span onclick="r('EXP')" class="sciop">EXP</span><span
+                                        onclick="r('/')" class="sciop">&#247;</span><span onclick="r('MR')"
+                                        class="sciop">MR</span></div>
+                                <div><span onclick="r('+/-')" class="sciop">&#177;</span><span onclick="r('sqrt')"
+                                        class="sciop">&#8730;x</span><span onclick="r('C')" class="scieq">C</span><span
+                                        onclick="r('=')" class="scieq">=</span><span onclick="r('MC')"
+                                        class="sciop">MC</span></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- <tr>
                             <td id="calfootnote">powered by <a href="https://www.calculator.net"
                                     rel="nofollow">calculator.net</a></td>
                         </tr> -->
-                    </table>
-                    <!--END OF MATH CALCULATOR CODE-->
-                </div>
+                </table>
+                <!--END OF MATH CALCULATOR CODE-->
             </div>
+        </div>
 
 
     </main>

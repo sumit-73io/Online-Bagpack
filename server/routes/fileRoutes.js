@@ -56,11 +56,19 @@ router.post("/folder", async (req, res) => {
   try {
     const { name, subject, parent } = req.body;
 
+    // const folder = new File({
+    //   name,
+    //   type: "folder",
+    //   subject,
+    //   parent: parent || null
+    // });
+
     const folder = new File({
       name,
       type: "folder",
       subject,
-      parent: parent || null
+      parent: parent || null,
+      parentName: req.body.parentName || null
     });
 
     await folder.save();
@@ -77,15 +85,30 @@ router.get("/", async (req, res) => {
   try {
     const { subject, parent } = req.query;
 
-    const files = await File.find({
-      subject,
-      parent: parent || null
-    });
+    let query = {};
 
+    if (subject) query.subject = subject;
+
+    if (!parent || parent === "null" || parent === "") {
+      query.parent = null;
+    } else {
+      query.parent = parent;
+    }
+
+    const files = await File.find(query);
     res.json(files);
 
   } catch (err) {
     console.error(err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const file = await File.findById(req.params.id);
+    res.json(file);
+  } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
