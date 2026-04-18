@@ -103,10 +103,10 @@
         <!-- CENTER -->
         <section class="center-content">
 
-            <div id="previewContainer" style="display:none;">
+            <!-- <div id="previewContainer" style="display:none;">
                 <button onclick="closePreview()">⬅ Back</button>
                 <div id="previewContent"></div>
-            </div>
+            </div> -->
 
             <div class="file-system">
 
@@ -131,6 +131,7 @@
                         </div>
                     </div>
 
+                    
                 </div>
 
                 <!-- 🔹 File Grid -->
@@ -138,6 +139,10 @@
                     <!-- Files & folders will come here -->
                 </div>
 
+                <div id="previewContainer" style="display:none;">
+                    <button style="position: left;" onclick="closePreview()">⬅ Back</button>
+                    <div id="previewContent"></div>
+                </div>
             </div>
 
             <!-- Hidden file input -->
