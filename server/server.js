@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const fileRoutes = require("./routes/fileRoutes");
-const authRoutes = require("./routes/authRoutes");
+// const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 const path = require("path");
@@ -14,6 +14,10 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use(cors());
 app.use(express.json());
+
+
+const authRoutes = require("./routes/authRoutes");
+app.use("/api/auth", authRoutes);
 
 mongoose.connect("mongodb://127.0.0.1:27017/backpack")
   .then(() => console.log("MongoDB Connected"))

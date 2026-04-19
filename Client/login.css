@@ -1,0 +1,81 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
+  height: 100vh;
+  background: #f4f6f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container */
+.container {
+  background: #fff;
+  padding: 30px;
+  width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Title */
+.container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Inputs */
+.container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.container input:focus {
+  border-color: #4CAF50;
+}
+
+/* Buttons */
+.container button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #4CAF50;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.container button:hover {
+  background: #45a049;
+}
+
+/* Register button */
+.container .register-btn {
+  background: #2196F3;
+}
+
+.container .register-btn:hover {
+  background: #1976D2;
+}
+
+/* Message */
+#msg {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
